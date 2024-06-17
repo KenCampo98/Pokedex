@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./api.js" defer></script>
+</head>
+<body class="bg-gray-200 min-h-screen">
+    <div class="bg-gray-200 p-4 text-center shadow-md">
+        <h1 class="text-4xl font-bold text-black">POKEDEX</h1>
+        <input type="text" id="search-input" placeholder="Search by name or type" class="mt-2 p-2 w-1/3 rounded shadow">
+        <div class="flex flex-wrap justify-center gap-2 mt-2">
+            <!-- Botones de filtro por tipo con clase para manejar eventos y data-type para identificar el tipo -->
+            <button class="type-button bg-gray-300 px-4 py-1 rounded" data-type="all">All</button>
+            <button class="type-button bg-gray-300 px-4 py-1 rounded" data-type="normal">Normal</button>
+            <button class="type-button bg-red-500 px-4 py-1 rounded" data-type="fire">Fire</button>
+            <button class="type-button bg-blue-500 px-4 py-1 rounded" data-type="water">Water</button>
+            <button class="type-button bg-yellow-300 px-4 py-1 rounded" data-type="electric">Electric</button>
+            <button class="type-button bg-green-500 px-4 py-1 rounded" data-type="grass">Grass</button>
+            <button class="type-button bg-teal-300 px-4 py-1 rounded" data-type="ice">Ice</button>
+            <button class="type-button bg-orange-500 px-4 py-1 rounded" data-type="fighting">Fighting</button>
+            <button class="type-button bg-purple-500 px-4 py-1 rounded" data-type="poison">Poison</button>
+            <button class="type-button bg-yellow-700 px-4 py-1 rounded" data-type="ground">Ground</button>
+            <button class="type-button bg-indigo-300 px-4 py-1 rounded" data-type="flying">Flying</button>
+            <button class="type-button bg-pink-500 px-4 py-1 rounded" data-type="psychic">Psychic</button>
+            <button class="type-button bg-lime-500 px-4 py-1 rounded" data-type="bug">Bug</button>
+            <button class="type-button bg-stone-400 px-4 py-1 rounded" data-type="rock">Rock</button>
+            <button class="type-button bg-indigo-500 px-4 py-1 rounded" data-type="ghost">Ghost</button>
+            <button class="type-button bg-gray-800 px-4 py-1 rounded" data-type="dark">Dark</button>
+            <button class="type-button bg-violet-500 px-4 py-1 rounded" data-type="dragon">Dragon</button>
+            <button class="type-button bg-blue-gray-400 px-4 py-1 rounded" data-type="steel">Steel</button>
+            <button class="type-button bg-pink-300 px-4 py-1 rounded" data-type="fairy">Fairy</button>
+        </div>
+    </div>
+    <div id="pokemon-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 gap-4 p-4">
+        <!-- Pokémon cards will be inserted here dynamically -->
+    </div>
+    <div id="load-more-container" class="flex justify-center my-4">
+        <button id="load-more" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">Load More</button>
+    </div>
+    <!-- Modal Pop up-->
+    <div id="pokemon-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-screen w-full flex justify-center items-center">
+        <div class="modal-content bg-white p-5 rounded-lg max-w-sm mx-auto text-center">
+            <div class="flex justify-between items-center">
+                <h2 id="pokemon-name" class="text-2xl font-bold uppercase">Nombre</h2>
+                <button id="close-modal" class="text-xl font-bold">&times;</button>
+            </div>
+            <img id="pokemon-image" src="" alt="Pokemon Image" class="w-full mx-auto">
+            <p id="pokemon-type" class="italic mt-2"></p>
+            <p id="pokemon-weight" class="italic"></p>
+            <p id="pokemon-height" class="italic"></p>
+            <div id="pokemon-stats" class="mt-2"></div>
+        </div>
+    </div>
+</body>
+</html>
